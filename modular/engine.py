@@ -141,4 +141,4 @@ def train(model: torch.nn.Module,
                                         loss_fn,
                                         device)
 
-        print(f"Epoch: {epoch} Train Loss: {train_loss} Train Acc: {train_acc} Test Loss: {test_loss} Test Acc: {test_acc}")
+        print(f"Epoch: {epoch} Train Loss: {train_loss:.3f} Train Acc: {train_acc:.3f} Test Loss: {test_loss:.3f} Test Acc: {test_acc:.3f}")
