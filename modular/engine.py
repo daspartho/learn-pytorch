@@ -130,6 +130,13 @@ def train(model: torch.nn.Module,
                     test_loss: [1.2641, 1.5706],
                     test_acc: [0.3400, 0.2973]} 
     """
+    
+    results = {"train loss":[],
+               "train acc":[],
+               "test loss":[],
+               "test acc":[]
+               }
+    
     for epoch in tqdm(range(epochs)):
         train_loss, train_acc = train_step(model, 
                                            train_dataloader, 
@@ -142,3 +149,9 @@ def train(model: torch.nn.Module,
                                         device)
 
         print(f"Epoch: {epoch} Train Loss: {train_loss:.3f} Train Acc: {train_acc:.3f} Test Loss: {test_loss:.3f} Test Acc: {test_acc:.3f}")
+        
+        results["train loss"].append(train_loss)
+        results["train acc"].append(train_acc)
+        results["test loss"].append(test_loss)
+        results["test acc"].append(test_acc)
+    return results
